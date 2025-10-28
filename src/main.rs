@@ -1,39 +1,28 @@
-use csv_to_json::{functions::read_csv, models::structs::HousePrice};
+// use csv_to_json::{functions::read_csv, models::structs::HousePrice};
+
+use std::{iter, slice::Iter};
 
 fn main() {
-    // crate::m1::m2::f();
-    // m1::m2::f();
-    let y = csv_to_json::models::enums::YesNo::Yes;
-    let house_price = HousePrice {
-        price: 250000,
-        area: String::from("Downtown"),
-        bed_rooms: 3,
-        main_road: y,
-    };
-    println!("House Price: {}", house_price.price);
+    let _v1: Vec<i32> = Vec::new();
+    let _v2 = vec![1, 2, 3];
 
-    read_csv(String::from(r"C:\a\c.csv"));
-}
+    // let mut v3 = Vec::new();
+    // v3.push(5);
+    // v3.push(6);
+    // println!("{:?}", v3);
 
-// mod models {}
-
-mod m1 {
-    pub mod m2 {
-        pub fn f() {
-            println!("Hello from m2::f");
-        }
-    }
-}
-
-mod x1 {
-    fn method3() {
-        // x2::g();
-        self::x2::g();
+    let i = _v2[1];
+    println!("{}", i);
+    let i1 = _v2.get(3);
+    match i1 {
+        Some(i) => println!("{}", i),
+        None => println!("No value"),
     }
 
-    mod x2 {
-        pub fn g() {
-            super::super::m1::m2::f();
-        }
-    }
+    let v: Vec<i32> = vec![1,2];
+    let mut iter: Iter<'_, i32> = v.iter();
+    let n1 = iter.next().unwrap();
+    let n2 = iter.next().unwrap();
+    let n3 = iter.next();
+    println!("{}, {}, {:?}", n1, n2, n3);
 }
